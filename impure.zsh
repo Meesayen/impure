@@ -1,6 +1,6 @@
-# Pure
-# by Sindre Sorhus
-# https://github.com/sindresorhus/pure
+# impure Meesayen
+# by Meesayen
+# https://github.com/Meesayen/impure
 # MIT License
 
 # For my own and others sanity
@@ -117,7 +117,7 @@ prompt_pure_preprompt_render() {
 	# Add git branch and dirty status info.
 	typeset -gA prompt_pure_vcs_info
 	if [[ -n $prompt_pure_vcs_info[branch] ]]; then
-		preprompt_parts+=("%F{$git_color}"'${prompt_pure_vcs_info[branch]}${prompt_pure_git_dirty}%f')
+		preprompt_parts+=("%F{$git_color}"' ${prompt_pure_vcs_info[branch]}${prompt_pure_git_dirty}%f')
 	fi
 	# Git pull/push arrows.
 	if [[ -n $prompt_pure_git_arrows ]]; then
@@ -126,8 +126,12 @@ prompt_pure_preprompt_render() {
 
 	# Username and machine, if applicable.
 	[[ -n $prompt_pure_username ]] && preprompt_parts+=('$prompt_pure_username')
+
+	# Node version, if applicable
+	[[ -n $prompt_pure_node_ver ]] && preprompt_parts+=('%{$FG[148]%}$prompt_pure_node_ver%f')
+
 	# Execution time.
-	[[ -n $prompt_pure_cmd_exec_time ]] && preprompt_parts+=('%F{yellow}${prompt_pure_cmd_exec_time}%f')
+	[[ -n $prompt_pure_cmd_exec_time ]] && preprompt_parts+=('%F{yellow}(${prompt_pure_cmd_exec_time})%f')
 
 	local cleaned_ps1=$PROMPT
 	local -H MATCH
@@ -273,6 +277,10 @@ prompt_pure_async_git_arrows() {
 	command git rev-list --left-right --count HEAD...@'{u}'
 }
 
+prompt_pure_async_node_ver() {
+	echo "$(PATH=$1 command node -v )"
+}
+
 prompt_pure_async_tasks() {
 	setopt localoptions noshwordsplit
 
@@ -319,6 +327,8 @@ prompt_pure_async_refresh() {
 	fi
 
 	async_job "prompt_pure" prompt_pure_async_git_arrows $PWD
+
+	async_job "prompt_pure" prompt_pure_async_node_ver $PATH
 
 	# do not preform git fetch if it is disabled or working_tree == HOME
 	if (( ${PURE_GIT_PULL:-1} )) && [[ $working_tree != $HOME ]]; then
@@ -387,6 +397,13 @@ prompt_pure_async_callback() {
 				prompt_pure_git_fetch_pattern+="|$output"
 			fi
 			;;
+		prompt_pure_async_node_ver)
+			if [[ -n $output ]]; then
+				prompt_pure_node_ver="⬢ $output"
+			fi
+
+			prompt_pure_preprompt_render
+			;;
 		prompt_pure_async_git_dirty)
 			local prev_dirty=$prompt_pure_git_dirty
 			if (( code == 0 )); then
@@ -434,7 +451,7 @@ prompt_pure_setup() {
 
 	prompt_opts=(subst percent)
 
-	# borrowed from promptinit, sets the prompt options in case pure was not
+	# borrowed from promptinit, sets the prompt options in case impure was not
 	# initialized via promptinit.
 	setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
