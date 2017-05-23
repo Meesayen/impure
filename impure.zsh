@@ -303,6 +303,7 @@ prompt_pure_async_tasks() {
 		unset prompt_pure_git_last_dirty_check_timestamp
 		unset prompt_pure_git_arrows
 		unset prompt_pure_git_fetch_pattern
+		unset prompt_pure_node_ver
 		prompt_pure_vcs_info[branch]=
 		prompt_pure_vcs_info[top]=
 	fi
