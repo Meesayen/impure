@@ -102,7 +102,7 @@ Defines the prompt symbol. The default value is `❯`.
 
 ### `IMPURE_GIT_BRANCH_SYMBOL`
 
-Defines the git branch symbol. The default value is ``.
+Defines the git branch symbol. The default value is ``. (probably not visible correctly if the font in use doesn't support this unicode char `<U+E0A0>`)
 
 ### `IMPURE_GIT_DOWN_ARROW`
 
