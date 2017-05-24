@@ -100,6 +100,10 @@ Time in seconds to delay git dirty checking for large repositories (git status t
 
 Defines the prompt symbol. The default value is `❯`.
 
+### `IMPURE_GIT_BRANCH_SYMBOL`
+
+Defines the git branch symbol. The default value is ``.
+
 ### `IMPURE_GIT_DOWN_ARROW`
 
 Defines the git down arrow symbol. The default value is `⇣`.

@@ -117,7 +117,7 @@ prompt_impure_preprompt_render() {
 	# Add git branch and dirty status info.
 	typeset -gA prompt_impure_vcs_info
 	if [[ -n $prompt_impure_vcs_info[branch] ]]; then
-		preprompt_parts+=("%F{$git_color}"' ${prompt_impure_vcs_info[branch]}${prompt_impure_git_dirty}%f')
+		preprompt_parts+=("%F{$git_color}"'${IMPURE_GIT_BRANCH_SYMBOL:-} ${prompt_impure_vcs_info[branch]}${prompt_impure_git_dirty}%f')
 	fi
 	# Git pull/push arrows.
 	if [[ -n $prompt_impure_git_arrows ]]; then
