@@ -111,7 +111,7 @@ Defines the git up arrow symbol. The default value is `⇡`.
 
 ## Tips
 
-In the screenshot you see impure running in [Hyper](https://hyper.is) with the [hyper-snazzy](https://github.com/sindresorhus/hyper-snazzy) theme and Fira Code font.
+In the screenshot you see impure running in [Hyper](https://hyper.is) with the [an-old-hype](https://github.com/erikmueller/an-old-hype) theme, [hyperborder](https://github.com/webmatze/hyperborder) (which gives it that amazing full gradient brackground) and Fira Code font.
 
 *Just make sure you have anti-aliasing enabled in your terminal.*
 
