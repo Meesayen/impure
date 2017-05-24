@@ -20,7 +20,7 @@ pkgver() {
 package() {
   cd $srcdir/$pkgname
   install -Dm644 impure.zsh \
-    "$pkgdir/usr/share/zsh/functions/Prompts/prompt_pure_setup"
+    "$pkgdir/usr/share/zsh/functions/Prompts/prompt_impure_setup"
   install -Dm644 async.zsh \
     "$pkgdir/usr/share/zsh/functions/async"
 }

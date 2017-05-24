@@ -80,31 +80,31 @@ prompt impure
 
 ## Options
 
-### `PURE_CMD_MAX_EXEC_TIME`
+### `IMPURE_CMD_MAX_EXEC_TIME`
 
 The max execution time of a process before its run time is shown when it exits. Defaults to `5` seconds.
 
-### `PURE_GIT_PULL`
+### `IMPURE_GIT_PULL`
 
-Set `PURE_GIT_PULL=0` to prevent impure from checking whether the current Git remote has been updated.
+Set `IMPURE_GIT_PULL=0` to prevent impure from checking whether the current Git remote has been updated.
 
-### `PURE_GIT_UNTRACKED_DIRTY`
+### `IMPURE_GIT_UNTRACKED_DIRTY`
 
-Set `PURE_GIT_UNTRACKED_DIRTY=0` to not include untracked files in dirtiness check. Only really useful on extremely huge repos like the WebKit repo.
+Set `IMPURE_GIT_UNTRACKED_DIRTY=0` to not include untracked files in dirtiness check. Only really useful on extremely huge repos like the WebKit repo.
 
-### `PURE_GIT_DELAY_DIRTY_CHECK`
+### `IMPURE_GIT_DELAY_DIRTY_CHECK`
 
 Time in seconds to delay git dirty checking for large repositories (git status takes > 5 seconds). The check is performed asynchronously, this is to save CPU. Defaults to `1800` seconds.
 
-### `PURE_PROMPT_SYMBOL`
+### `IMPURE_PROMPT_SYMBOL`
 
 Defines the prompt symbol. The default value is `❯`.
 
-### `PURE_GIT_DOWN_ARROW`
+### `IMPURE_GIT_DOWN_ARROW`
 
 Defines the git down arrow symbol. The default value is `⇣`.
 
-### `PURE_GIT_UP_ARROW`
+### `IMPURE_GIT_UP_ARROW`
 
 Defines the git up arrow symbol. The default value is `⇡`.
 
